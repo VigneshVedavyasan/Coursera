@@ -38,15 +38,26 @@ fun countOfDays(dates : (int * int * int) list, month : int, count : int) =
 fun number_in_month(dates : (int * int * int) list, month : int) =
   countOfDays(dates,month,0);
 
-(* fun number_in_months
+fun countOfDaysInMonths(dates : (int * int * int) list, month : list) =
+let
+  val count = countOfDays(dates, hd(month))
+in
+  while ((null month) = false) do 
+      (count := count + countOfDays(dates, tl(month), count));
+  count
+end
+
+fun number_in_months(dates : (int * int * int) list, month : list) =
+  if null month
+  then 0
+  else countOfDaysInMonths(dates, month);
+
+
+fun dates_in_month(
 
 
 
-fun dates_in_month
-
-
-
-fun dates_in_months
+(* fun dates_in_months
 
 
 
