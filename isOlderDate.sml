@@ -3,14 +3,14 @@ fun is_older (dt1 : int * int * int, dt2 : int * int * int) =
   if (#1 dt1) < (#1 dt2)
   then true
   else if (#1 dt1) = (#1 dt2)
-    then if (#2 dt1) < (#2 dt2)
-        then true
-        else if (#2 dt1) = (#2 dt2)
-             then if (#3 dt1) < (#3 dt2)
-                  then true
-                  else false
-             else false
-    else false
+       then if (#2 dt1) < (#2 dt2)
+            then true
+            else if (#2 dt1) = (#2 dt2)
+                 then if (#3 dt1) < (#3 dt2)
+                      then true
+                      else false
+                 else false
+       else false
 
 fun validate_date(date : (int * int * int)) =
   if ((#2 date) = 1 orelse (#2 date) = 3 orelse (#2 date) = 5 orelse (#2 date) = 7 orelse (#2 date) = 8 orelse (#2 date) = 10 orelse (#2 date) = 12) 
@@ -81,7 +81,7 @@ fun get_nth(strings : string list, n : int) =
 
 fun date_to_string(date : int * int * int) =
 let
-  val monthInString = ["January", "February", "March", "April", "May","June", "July", "August", "September", "October","November", "December"]
+  val monthInString = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 in
   get_nth(monthInString, #2 date) ^ " " ^ Int.toString(#3 date) ^ ", " ^ Int.toString(#1 date)
 
@@ -101,7 +101,7 @@ in
 end
 
 
-fun month_range
+(*fun month_range
 
 
 
